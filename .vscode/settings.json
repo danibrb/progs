@@ -1,0 +1,11 @@
+{
+    "[yaml]": {
+        "editor.autoIndent": "none"
+    },
+    "[dockercompose]": {
+        "editor.autoIndent": "none"
+    },
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}
