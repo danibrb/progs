@@ -6,6 +6,7 @@
         "editor.autoIndent": "none"
     },
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cmath": "cpp"
     }
 }
