@@ -1,5 +1,8 @@
 // Strutturare con funzioni il programma precedentemente preparato per il calcolo delle media,
 // varianza, deviazione standard, errore standard.
+
+//TODO: finire le due funzioni!!
+
 #include <iostream>
 using namespace std;
 
