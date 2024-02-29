@@ -12,8 +12,13 @@
     "code-runner.runInTerminal": true,
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.saveFileBeforeRun": true,
+<<<<<<< HEAD
     "python.linting.enabled": true,
     "python.languageServer": "Pylance",
+=======
+    "python.languageServer": "Pylance",
+    "python.linting.enabled": true,
+>>>>>>> 1899d616e8ad7acba14c4ba92f9e852193411ed7
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingModuleSource": "none"
