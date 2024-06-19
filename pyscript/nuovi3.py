@@ -4,9 +4,6 @@ import unicodedata
 
 def open_file():
     """Opens an XLSX file using a file dialog and creates a DataFrame."""
-    root = Tk()
-    root.withdraw()  # Hide the main window
-
     file_path = filedialog.askopenfilename(
         title="Select File", filetypes=[("Excel Files", "*.xlsx")]
     )
@@ -20,9 +17,6 @@ def open_file():
             print(f"Error opening file: {e}")
     else:
         print("No file selected.")
-
-    root.destroy()  # Destroy the hidden window
-
 
 def get_domain_and_password(df):
     """Gets the domain name and password from the text boxes and processes data."""
@@ -39,7 +33,7 @@ def get_domain_and_password(df):
 
         df["Password"] = password
         print(df)  # Print the DataFrame with added columns
-
+        export_data(df)  # Export the DataFrame to a CSV file
 
 def create_email_address(name_data, domain_name):
     """Creates valid email addresses from the given data and domain."""
@@ -51,7 +45,6 @@ def create_email_address(name_data, domain_name):
         emails.append(email)
     return emails
 
-
 def normalize_name(name):
     """Normalizes a name string for email address creation."""
     normalized_name = (
@@ -59,7 +52,6 @@ def normalize_name(name):
     )
     normalized_name = normalized_name.replace("'", "").replace(" ", ".")
     return normalized_name
-
 
 def create_domain_window(df):
     """Creates a window for entering domain name, password, and export button."""
@@ -94,10 +86,17 @@ def create_domain_window(df):
     export_button = Button(
         domain_window, text="Export Data (CSV)", command=lambda: export_data(df)
     )
-    export_button.pack()
+    export_button.pack_forget()
+
+    # Open file button
+    open_file_button = Button(domain_window, text="Open File", command=open_file)
+    open_file_button.pack_forget()
+
+    # Close button to terminate the script
+    close_button = Button(domain_window, text="Close", command=domain_window.destroy)
+    close_button.pack()
 
     domain_window.mainloop()  # Start the event loop for the window
-
 
 def export_data(df):
     """Exports the DataFrame with processed data (emails, password) to a CSV file."""
@@ -116,7 +115,6 @@ def export_data(df):
             print("Export cancelled.")
     except Exception as e:
         print(f"Error exporting data: {e}")
-
 
 if __name__ == "__main__":
     open_file()
